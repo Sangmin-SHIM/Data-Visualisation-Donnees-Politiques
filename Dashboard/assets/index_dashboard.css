@@ -1,0 +1,325 @@
+/* --------------------------- */
+/* Custom Properties           */
+/* --------------------------- */
+
+:root{
+    /* colors */
+    --custom-grey : 225 54.5% 95.7%; 
+    --custom-dark: 230 35% 7%;
+    --custom-light: 231 77% 90%;
+    --custom-white: 0 0% 100%;
+
+    --custom-main1: 248 91.7% 71.6% ;
+    --custom-main2: 201 100% 69.2%;
+    --custom-main3: 17 100% 69.6%;
+    --custom-main4: 144 49.7% 68.8%;
+    --custom-main5: 284 60% 79.4%;
+    
+    /* font-sizes */
+    --fs-900: 9.375rem;
+    --fs-800: 6.25rem;
+    --fs-700: 3.5rem;
+    --fs-600: 2rem;
+    --fs-500: 1.75rem;
+    --fs-400: 1.125rem;
+    --fs-300: 1rem;
+    --fs-200: 0.875rem;
+
+    /* font-families */
+    --ff-serif: "Bellefair", serif;
+    --ff-sans-cond: "Barlow Condensed", sans-serif;
+    --ff-sans-normal: "Barlow", sans-serif;
+
+    /* Margin, Padding .. */
+    --box-very-small: .5em;
+    --box-small: 1rem;
+    --box-middle: 3rem;
+    --box-big: 5rem;
+}
+
+/* --------------- */
+/* Reset           */
+/* --------------- */
+
+/* https://piccalil.li/blog/a-modern-css-reset */
+
+/* Box sizing */
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+/* Rest margins */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+picture,
+blockquote,
+dl,
+dd {
+    margin:0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p{
+    font-weight: 400;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color:inherit;
+}
+
+td,tr{
+    padding-bottom: var(--box-very-small);
+}
+
+table{
+    margin-top: var(--box-small) ;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  font-family: var(--ff-sans-normal);
+  font-size: var(--fs-400);
+  background-color: hsl(var(--custom-grey));
+  color:hsl(var(--custom-dark));
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* ------------------------- */
+/* Utility classes           */
+/* ------------------------- */
+
+/* general */
+
+.flex{
+    display : flex;
+    gap : var(--gap, 1rem);
+}
+
+.grid {
+    display : grid;
+    gap : var(--gap, 1rem);    
+}
+
+.flow > * {
+    margin-top: var(--flow-space,1rem);
+}
+
+.container{
+    padding:1em 0;
+    margin-inline: auto;
+    max-width: 93rem;
+    height: 145vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 10fr 4fr;
+    grid-template-areas: 
+    "nav nav nav nav"
+    "sidebar main main main"
+    "db_list data_content1 data_content2 data_content3"
+}
+
+.sr-only{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space:nowrap;
+    border:0;
+}
+
+.box{
+    background: lightblue;
+    padding: 3rem;
+}
+
+.call_to_action{
+    --gap:4rem;
+    background-color: pink;
+    padding: 2rem;
+    border-radius: 1rem;   
+}
+
+/* colors */
+
+.bg-grey {
+    background-color: hsl(var(--custom-grey));
+}
+.bg-white {
+    background-color: hsl(var(--custom-white));
+}
+
+.text-dark {
+    color: hsl(var(--custom-dark));
+}
+.text-accent {
+    color: hsl(var(--custom-light));
+}
+.text-white {
+    color: hsl(var(--custom-white));
+}
+
+/* typography  */
+
+.ff-serif{ font-family: var(--ff-serif);}
+.ff-sans-cond{ font-family: var(--ff-sans-cond);}
+.ff-Sans-normal{ font-family: var(--ff-sans-normal);}
+
+.letter-spacing-1{ letter-spacing:4.75px;}
+.letter-spacing-2{ letter-spacing:2.7px;}
+.letter-spacing-3{ letter-spacing:2.35px;}
+
+.uppercase { text-transform: uppercase;}
+
+.fs-900{font-size:var(--fs-900);}
+.fs-800{font-size:var(--fs-800);}
+.fs-700{font-size:var(--fs-700);}
+.fs-600{font-size:var(--fs-600);}
+.fs-500{font-size:var(--fs-500);}
+.fs-400{font-size:var(--fs-400);}
+.fs-300{font-size:var(--fs-300);}
+.fs-200{font-size:var(--fs-200);}
+
+.fs-900,
+.fs-800,
+.fs-700,
+.fs-600{
+    line-height: 1.1;
+}
+
+/* --------------------------- */
+/* Components                  */
+/* --------------------------- */
+
+/* General */
+nav{
+    padding: var(--box-very-small) var(--box-small);
+    grid-area: nav;
+}
+main{
+    padding: var(--box-very-small) var(--box-small);
+    grid-area: main;
+}
+#sidebar{
+    padding: var(--box-very-small) var(--box-small);
+    grid-area: sidebar;
+}
+#db_list{
+    padding: var(--box-very-small) var(--box-small);
+    grid-area: db_list;
+}
+#data_content1{
+    padding: var(--box-very-small) var(--box-small);
+    grid-area: data_content1;
+}
+#data_content2{
+    padding: var(--box-very-small) var(--box-small);
+    grid-area: data_content2;    
+}
+#data_content3{
+    padding: var(--box-very-small) var(--box-small);
+    grid-area: data_content3;
+}
+footer{
+    padding: var(--box-very-small) var(--box-small);
+    grid-area: footer;
+}
+
+/* Navbar */
+.menu > li{
+    text-align: center;
+}
+.menu > li >a:hover,
+.menu > li >a:focus
+{
+    color:hsl(var(--custom-main1) / .5);
+}
+
+/* Sidebar */
+.sidebar_list{
+    margin-left:0px;
+
+}
+  
+.number span{
+    margin-right: 1em;
+    color: hsl(var(--custom-dark));
+}
+
+td button{
+    cursor: pointer;
+    border-radius: 10rem;
+    border-color:hsl(var(--custom-grey));
+    background-color: hsl(var(--custom-grey));
+}
