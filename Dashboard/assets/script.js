@@ -9,8 +9,7 @@ const sidebar_list = document.querySelector('.sidebar_list');
 //---------------------
 
 // (0) general
-const table = document.querySelector('#region')
-
+const table = document.querySelector('#region');
 
 // (1) 2017
 var months = [ {"id":1,"name":"January"}, {"id":2,"name":"February"} ];
@@ -36,7 +35,7 @@ btn_deuxieme_presidentielle.addEventListener('click',showMap);
 
 // Function
 function showMap(event){
-    id = event.path[0].id;
+    let id = event.path[0].id;
 
     result_2017.forEach(function(element) {
             if (element.id === id) {
