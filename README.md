@@ -2,6 +2,9 @@
 
 Faire de l’analyse statistique sur les campagnes politiques, les hommes politiques et les bureaux de votes. Faire de la data-visualisation sur ces données et de la prédiction statistique.
 
+Le Plus Voté dans chaque bureaux de vote est affiché.
+
+
 Bibliothèque de Python : Pandas - Traitement Données / Folium - Visualisation de Données
 
 (1) Base de Données (Excel)
